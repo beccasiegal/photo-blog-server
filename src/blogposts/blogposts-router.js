@@ -12,7 +12,7 @@ const serializeBlogposts = blogpost => ({
     url: blogpost.url,
 });
 
-blogpostssRouter
+blogpostsRouter
 	.route("/")
 	.get((req, res, next) => {
         // console.log("Entering blogposts-router... route= /")

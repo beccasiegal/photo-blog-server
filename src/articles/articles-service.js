@@ -1,4 +1,4 @@
-const NamesService = {
+const ArticlesService = {
     getAllArticles(knex) {
         return knex.select('*').from('articles')
     },

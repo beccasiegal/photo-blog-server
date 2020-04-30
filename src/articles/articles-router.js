@@ -19,7 +19,7 @@ articlesRouter
 .route('/')
 .get((req, res, next) => {
     const knexInstance = req.app.get('db')
-    articlesService.getAllarticles(knexInstance)
+    articlesService.getAllArticles(knexInstance)
         .then(articles => {
             res.json(articles.map(serializearticle))
         })

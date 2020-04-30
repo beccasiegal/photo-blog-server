@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 const { NODE_ENV } = require('./config')
-const blogpostsRouter = require('./blogposts/blogpostss-router');
+const blogpostsRouter = require('./blogposts/blogposts-router');
 const articlesRouter = require('./articles/articles-router');
 
 const app = express();
@@ -25,7 +25,7 @@ app.use((req, res, next)=> { // debugging access to initial request - notice how
 //end
 //specific routes for resources
 app.use('/api/blogposts', blogpostsRouter)
-app.use('/api/artilces', articlesRouter)
+app.use('/api/artilces', articlesRouter) // is this spelled correctly?
 
 // route for basic health check
 app.get('/', (req, res) => {res.send('Hello, world!') })
