@@ -10,7 +10,7 @@ const articlesRouter = require('./articles/articles-router');
 const app = express();
 
 const morganOption = (NODE_ENV === 'production') ? 'tiny' : 'common';
-
+console.log('app.js:process.env.DATABASE_URL:', process.env.DATABASE_URL)
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());

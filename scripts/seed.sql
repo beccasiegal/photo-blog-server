@@ -1,21 +1,7 @@
 BEGIN;
-ALTER SEQUENCE blogposts_id_seq RESTART; 
---this resets primary key to 1
-INSERT INTO blogposts
-    (url)
-VALUES
-    (''),
-    (''),
-    (''),
-    (''),
-    (''),
-    (''),
-    (''),
-    ('');
-
 
 INSERT INTO articles
-    (nameText, content, url, blogpostsId)
+    (nameText, content)
 VALUES
     (),
     (),
@@ -26,5 +12,21 @@ VALUES
     (),
     (),
     ();
+
+    INSERT INTO pictures
+        (altText, imageurl, articlesID)
+    VALUES
+        (),
+        (),
+        (),
+        ();
+
+    INSERT INTO comments
+        (title, authorName, content)
+    VALUES
+        (),
+        (),
+        (),
+        ();
 
 COMMIT;
