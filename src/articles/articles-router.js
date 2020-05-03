@@ -8,11 +8,8 @@ const jsonParser = express.json()
 
 const serializearticle = article => ({
     id: article.id,
-    title: xss(article.titletext),
-    photoUrl: imageurl,
+    nameText: xss(article.nametext),
     content: xss(article.articletext),
-    blogpostsid: xss(article.blogpostsid),
-    
 })
 
 articlesRouter
@@ -26,8 +23,8 @@ articlesRouter
         .catch(next)
 })
 .post(jsonParser, (req, res, next) => {
-    const { title, content, imageurl  } = req.body
-    const newarticle = { title, content, imageurl}
+    const { nameText, content } = req.body
+    const newarticle = { nameText, content}
 
     for (const [key, value] of Object.entries(newarticle))
       if (value == null)
@@ -80,9 +77,9 @@ articlesRouter
         .catch(next)
     })
     .patch(jsonParser, (req, res, next) => {
-        const {article, votes, animalid } = req.body;
+        const {article, conetent} = req.body;
         console.log("articles-router.js : req.body : ", req.body)
-        const articleToUpdate = { article, votes, animalid }
+        const articleToUpdate = { article, content}
         console.log("articles-router.js : articleToUpdate : ", articleToUpdate)
 
         const numberOfValues = Object.values(articleToUpdate).filter(Boolean)
@@ -90,7 +87,7 @@ articlesRouter
 		if (numberOfValues ===0) {
 			return res.status(400).json({
 				error: {
-					message: `Request body must contain 'article, vote or animalid'`
+					message: `Request body must contain 'article or content'`
 				}
 			});
         }
