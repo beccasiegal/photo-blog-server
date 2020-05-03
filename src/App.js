@@ -4,8 +4,9 @@ const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 const { NODE_ENV } = require('./config')
-const blogpostsRouter = require('./blogposts/blogposts-router');
 const articlesRouter = require('./articles/articles-router');
+const picturesRouter = require('./pictures/pictures-router');
+const commentsRouter = require('./comments/comments-router')
 
 const app = express();
 
@@ -24,8 +25,9 @@ app.use((req, res, next)=> { // debugging access to initial request - notice how
 })
 //end
 //specific routes for resources
-app.use('/api/blogposts', blogpostsRouter)
 app.use('/api/articles', articlesRouter)
+app.use('/api/pictures', picturesRouter)
+app.use('/api/comments', commentsRouter)
 
 // route for basic health check
 app.get('/', (req, res) => {res.send('Hello, world!') })
