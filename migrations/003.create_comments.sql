@@ -3,7 +3,7 @@ CREATE TABLE comments (
   authorName TEXT NOT NULL,
   title TEXT,
   content TEXT NOT NULL,
-  reviewed Boolean set False,
+  reviewed BIT,
   date_created TIMESTAMP DEFAULT now() NOT NULL,
  articlesId INTEGER REFERENCES articles(id) ON DELETE CASCADE NOT NULL
 );
